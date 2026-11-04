@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-label="KareOptions">
+  <defs>
+    <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+  </defs>
+  <!-- K whose arms branch into two options with nodes -->
+  <path d="M14 12v48" stroke="#E6F1FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M14 36 L40 14M14 36 L40 58" fill="none" stroke="url(#kg)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M40 14 L56 14M40 58 L56 58" stroke="url(#kg)" stroke-width="3" stroke-dasharray="3 4" stroke-linecap="round"/>
+  <circle cx="60" cy="14" r="6" fill="#A78BFA"/>
+  <circle cx="60" cy="58" r="6" fill="#F472B6"/>
+  <circle cx="60" cy="14" r="10" fill="none" stroke="#A78BFA" stroke-opacity=".4" stroke-width="1.5"/>
+  <text x="80" y="47" font-family="Rajdhani, 'Segoe UI', sans-serif" font-size="40" font-weight="700" letter-spacing="1" fill="#E6F1FF">Kare<tspan fill="url(#kg)">Options</tspan></text>
+  <text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">MEDICAL SECOND OPINION</text>
+</svg>

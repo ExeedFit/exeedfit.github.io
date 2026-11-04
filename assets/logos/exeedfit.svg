@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" width="320" height="72" role="img" aria-label="ExeedFit">
+  <defs>
+    <linearGradient id="xg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+  <!-- hexagonal mark -->
+  <polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="none" stroke="url(#xg)" stroke-width="3"/>
+  <polygon points="36,14 55,25 55,47 36,58 17,47 17,25" fill="#0B1326" opacity=".9"/>
+  <!-- stylised E with pulse -->
+  <path d="M26 24h20M26 36h14M26 48h20" stroke="url(#xg)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M8 36h9l3-7 4 14 3-7h6" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- wordmark -->
+  <text x="80" y="47" font-family="Rajdhani, 'Segoe UI', sans-serif" font-size="40" font-weight="700" letter-spacing="2" fill="#E6F1FF">EXEED<tspan fill="url(#xg)" font-weight="500">FIT</tspan></text>
+  <text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">HEALTHCARE TECHNOLOGY</text>
+</svg>
