@@ -131,12 +131,6 @@ section { position: relative; z-index: 1; padding-block: clamp(4rem, 9vw, 7.5rem
 .card .more { margin-top: auto; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; }
 .card .more::after { content: " →"; }
 
-/* structure diagram */
-.structure { background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
-.diagram { margin-top: 3rem; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(5,11,24,.6); padding: 1.5rem; overflow-x: auto; }
-.diagram svg { display: block; width: 100%; min-width: 640px; height: auto; }
-.diagram .flow { stroke-dasharray: 6 8; animation: flow 1.6s linear infinite; }
-@keyframes flow { to { stroke-dashoffset: -28; } }
 
 /* technology */
 .tech .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
