@@ -1,285 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ExeedFit — Healthcare Technology</title>
-  <meta name="description" content="ExeedFit is a healthcare technology company building simple, affordable digital health products for patients, doctors and clinics." />
-  <link rel="canonical" href="https://www.exeedfit.com/" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta name="theme-color" content="#0b0f19" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.exeedfit.com/" />
-  <meta property="og:title" content="ExeedFit — Healthcare Technology" />
-  <meta property="og:description" content="Simple, affordable digital health products for patients, doctors and clinics." />
-  <meta name="twitter:card" content="summary" />
-
-  <style>
-    :root {
-      --bg: #0b0f19;
-      --card: #111827;
-      --border: #1f2937;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --accent: #10b981;
-      --accent-strong: #34d399;
-      --accent-glow: rgba(16, 185, 129, 0.18);
-      --max: 1120px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      background-image: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 55%);
-      background-repeat: no-repeat;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a { color: var(--accent-strong); }
-    a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
-
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
-
-    /* Header */
-    header { padding: 1.5rem 0; }
-    header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .logo {
-      display: inline-flex; align-items: center; gap: 0.55rem;
-      font-size: 1.4rem; font-weight: 800; letter-spacing: -0.03em;
-      color: var(--text); text-decoration: none;
-    }
-    .logo b { font-weight: inherit; }
-    .logo span { color: var(--accent); }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
-    nav a:hover { color: var(--text); }
-
-    /* Hero */
-    .hero { padding: 5rem 0 4.5rem; text-align: center; }
-    .badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.35rem 0.9rem; border-radius: 9999px;
-      background: var(--card); border: 1px solid var(--border);
-      font-size: 0.8rem; font-weight: 600; color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-    .badge::before {
-      content: ""; width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent); box-shadow: 0 0 10px var(--accent);
-    }
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 3.75rem); line-height: 1.1;
-      letter-spacing: -0.035em; font-weight: 800;
-      max-width: 820px; margin: 0 auto 1.25rem;
-    }
-    h1 em { font-style: normal; color: var(--accent); }
-    .lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 2.25rem; }
-    .actions { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 0.8rem 1.5rem; border-radius: 10px;
-      font-weight: 600; text-decoration: none; transition: transform .15s, background .15s;
-    }
-    .btn-primary { background: var(--accent); color: #04130d; }
-    .btn-primary:hover { background: var(--accent-strong); transform: translateY(-1px); }
-    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--card); }
-    .btn-ghost:hover { border-color: var(--accent); }
-
-    /* Sections */
-    section { padding: 4.5rem 0; border-top: 1px solid var(--border); }
-    .eyebrow {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem;
-    }
-    h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
-    .section-intro { color: var(--muted); max-width: 680px; font-size: 1.05rem; }
-
-    .grid { display: grid; gap: 1.25rem; margin-top: 2.5rem; grid-template-columns: repeat(3, 1fr); }
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.75rem;
-    }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .card p { color: var(--muted); font-size: 0.97rem; }
-    .icon {
-      width: 44px; height: 44px; border-radius: 10px; margin-bottom: 1.1rem;
-      display: grid; place-items: center;
-      background: var(--accent-glow); color: var(--accent);
-    }
-    .icon svg { width: 22px; height: 22px; }
-
-    /* Founder */
-    .founder { display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center; margin-top: 2.5rem; }
-    .avatar {
-      display: block; width: 140px; height: 140px; border-radius: 50%;
-      object-fit: cover; border: 3px solid var(--accent);
-      box-shadow: 0 0 0 6px var(--accent-glow);
-    }
-    .founder h3 { font-size: 1.5rem; letter-spacing: -0.02em; }
-    .founder .role { color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
-    .founder p { color: var(--muted); max-width: 620px; }
-    .founder .links { margin-top: 1rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
-
-    /* Contact */
-    .contact { text-align: center; }
-    .contact .section-intro { margin: 0 auto 2rem; }
-
-    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); font-size: 0.88rem; }
-    footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-
-    @media (max-width: 860px) {
-      .grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 640px) {
-      nav { display: none; }
-      .hero { padding: 3.5rem 0 3.5rem; }
-      section { padding: 3.5rem 0; }
-      .founder { grid-template-columns: 1fr; text-align: center; gap: 1.5rem; }
-      .avatar { margin: 0 auto; width: 112px; height: 112px; }
-      .founder p { margin: 0 auto; }
-      .founder .links { justify-content: center; }
-      footer .wrap { flex-direction: column; text-align: center; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .btn { transition: none; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ExeedFit — Healthcare Technology</title>
+<meta name="description" content="ExeedFit Inc. builds simple, affordable digital health products for patients, doctors and clinics: VitaExcel, DocIndia and KareOptions.">
+<meta property="og:title" content="ExeedFit — Healthcare Technology">
+<meta property="og:description" content="Technology that makes good healthcare simpler and more affordable. Home of VitaExcel, DocIndia and KareOptions.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <a href="#top" class="logo" aria-label="ExeedFit home">
-        <img src="favicon.svg" alt="" width="28" height="28" />
-        <b>Exeed<span>Fit</span></b>
-      </a>
-      <nav aria-label="Main">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ExeedFit home">
+      <svg viewBox="0 0 320 72" width="320" height="72" role="img" aria-label="ExeedFit"><defs><linearGradient id="xg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#34D399"/></linearGradient></defs><polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="none" stroke="url(#xg)" stroke-width="3"/><polygon points="36,14 55,25 55,47 36,58 17,47 17,25" fill="#0B1326" opacity=".9"/><path d="M26 24h20M26 36h14M26 48h20" stroke="url(#xg)" stroke-width="4" stroke-linecap="round"/><path d="M8 36h9l3-7 4 14 3-7h6" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="80" y="47" font-family="Rajdhani, 'Segoe UI', sans-serif" font-size="40" font-weight="700" letter-spacing="2" fill="#E6F1FF">EXEED<tspan fill="url(#xg)" font-weight="500">FIT</tspan></text><text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">HEALTHCARE TECHNOLOGY</text></svg>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#brands">Brands</a></li>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#founder">Leadership</a></li>
+        <li><a class="cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Healthcare technology · Sunnyvale CA · Gurugram IN</span>
+      <h1>Technology that makes <span class="grad">good healthcare</span> simpler and more affordable.</h1>
+      <p class="lede">ExeedFit Inc. designs and operates digital health platforms for patients, doctors and clinics. Verified physician discovery, telemedicine, and specialist second opinions, delivered through cloud infrastructure today and AI next.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#brands">Explore our platforms</a>
+        <a class="btn btn-ghost" href="#technology">See the technology</a>
+      </div>
+      <div class="readout" aria-label="Live platform readout">
+        <div>SYSTEM<b id="r-status">ONLINE</b></div>
+        <div>FOUNDED<b>2018</b></div>
+        <div>PLATFORMS<b>03</b></div>
+        <div>REGIONS<b>US · IN</b></div>
+      </div>
+    </div>
+    <div class="hud" aria-hidden="true">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <span class="tag a">EXEEDFIT CORE // v3</span><span class="tag b">SYNC 100%</span>
+      <div class="scan"></div>
+      <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="core">
+        <svg viewBox="0 0 72 72"><polygon points="36,4 64,20 64,52 36,68 8,52 8,20" fill="none" stroke="#22D3EE" stroke-width="3"/><path d="M26 24h20M26 36h14M26 48h20" stroke="#34D399" stroke-width="4" stroke-linecap="round"/><path d="M8 36h9l3-7 4 14 3-7h6" fill="none" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="sat s1"><svg viewBox="0 0 72 72"><path d="M16 22 L34 56 L54 20" fill="none" stroke="#34D399" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 20h8v8" fill="none" stroke="#A3E635" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="sat s2"><svg viewBox="0 0 72 72"><path d="M14 8h24c17 0 30 12 30 28S55 64 38 64H14z" fill="none" stroke="#38BDF8" stroke-width="5"/><path d="M36 26v20M26 36h20" stroke="#E6F1FF" stroke-width="6" stroke-linecap="round"/></svg></div>
+      <div class="sat s3"><svg viewBox="0 0 72 72"><path d="M14 12v48" stroke="#E6F1FF" stroke-width="7" stroke-linecap="round"/><path d="M14 36 L40 14M14 36 L40 58" fill="none" stroke="#A78BFA" stroke-width="7" stroke-linecap="round"/><circle cx="52" cy="14" r="7" fill="#A78BFA"/><circle cx="52" cy="58" r="7" fill="#F472B6"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<div class="ecg" aria-hidden="true">
+  <svg viewBox="0 0 1400 70" preserveAspectRatio="none">
+    <path d="M0 35 H180 l12 0 8-18 10 36 10-30 8 12 H420 l10 0 8-22 10 44 10-34 8 12 H700 l10 0 8-18 10 36 10-30 8 12 H980 l10 0 8-22 10 44 10-34 8 12 H1400" fill="none" stroke="#34D399" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<section id="brands">
+  <div class="wrap">
+    <span class="eyebrow">Our platforms</span>
+    <h2>One group. Three products. <span class="grad">Every stage of care.</span></h2>
+    <p class="lede">From the first search for a trustworthy doctor to a specialist board reviewing a diagnosis, each ExeedFit brand covers a distinct step in the patient journey.</p>
+
+    <div class="stats reveal">
+      <div class="stat"><b data-count="9747">9,747</b><small>Verified doctors on DocIndia</small></div>
+      <div class="stat"><b data-count="11970">11,970</b><small>Appointments booked</small></div>
+      <div class="stat"><b data-count="72" data-suffix="h">72h</b><small>Second-opinion report turnaround</small></div>
+      <div class="stat"><b data-count="15" data-suffix="%">15%</b><small>Cases where a second opinion changes the diagnosis</small></div>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="logo"><svg viewBox="0 0 300 72" role="img" aria-label="VitaExcel"><defs><linearGradient id="vg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#A3E635"/></linearGradient></defs><circle cx="36" cy="36" r="31" fill="none" stroke="url(#vg)" stroke-width="2.5" stroke-dasharray="150 45" transform="rotate(-60 36 36)"/><path d="M16 22 L34 56 L54 20" fill="none" stroke="url(#vg)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 20h8v8" fill="none" stroke="#A3E635" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Vita<tspan fill="url(#vg)">Excel</tspan></text><text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">HEALTH · TECHNOLOGY · INDIA</text></svg></div>
+        <span class="role">India operating company · vitaexcel.com</span>
+        <p>Vita Excel Private Limited is the healthcare technology company behind DocIndia. Its mandate is affordability: bringing global digital-health innovation to Indian patients and providers with local accessibility.</p>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#focus">What we build</a></li>
-          <li><a href="#founder">Founder</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li>Incorporated in New Delhi, 2021</li>
+          <li>Head office in Gurugram, Haryana</li>
+          <li>Publishes health, nutrition and fitness content at news.vitaexcel.com</li>
         </ul>
-      </nav>
+        <a class="more" href="https://vitaexcel.com" target="_blank" rel="noopener">vitaexcel.com</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="logo"><svg viewBox="0 0 300 72" role="img" aria-label="DocIndia"><defs><linearGradient id="dg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#2563EB"/></linearGradient></defs><path d="M14 8h24c17 0 30 12 30 28S55 64 38 64H14z" fill="none" stroke="url(#dg)" stroke-width="4" stroke-linejoin="round"/><path d="M22 16h15c12 0 21 8 21 20s-9 20-21 20H22z" fill="#0B1326"/><path d="M36 26v20M26 36h20" stroke="#E6F1FF" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="16" r="9" fill="#34D399"/><path d="M55.5 16l3 3 6-6" fill="none" stroke="#06281C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Doc<tspan fill="url(#dg)">India</tspan></text><text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">VERIFIED DOCTORS · TELEHEALTH</text></svg></div>
+        <span class="role">Flagship product · docindia.org</span>
+        <p>Find verified doctors and clinics, compare credentials and real patient reviews, and book instantly in clinic or by secure video. Every doctor passes a credential audit before accepting patients and carries the DocIndia Verified badge.</p>
+        <ul>
+          <li>Patient app and a separate Doctors &amp; Providers app on Android</li>
+          <li>Secure tele-health consultation rooms for practices</li>
+          <li>Doctor discovery based on facts, not advertising</li>
+        </ul>
+        <a class="more" href="https://www.docindia.org" target="_blank" rel="noopener">docindia.org</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="logo"><svg viewBox="0 0 320 72" role="img" aria-label="KareOptions"><defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#F472B6"/></linearGradient></defs><path d="M14 12v48" stroke="#E6F1FF" stroke-width="6" stroke-linecap="round"/><path d="M14 36 L40 14M14 36 L40 58" fill="none" stroke="url(#kg)" stroke-width="6" stroke-linecap="round"/><path d="M40 14 L56 14M40 58 L56 58" stroke="url(#kg)" stroke-width="3" stroke-dasharray="3 4" stroke-linecap="round"/><circle cx="60" cy="14" r="6" fill="#A78BFA"/><circle cx="60" cy="58" r="6" fill="#F472B6"/><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Kare<tspan fill="url(#kg)">Options</tspan></text><text x="82" y="64" font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="3" fill="#7C9AB8">MEDICAL SECOND OPINION</text></svg></div>
+        <span class="role">Global second opinion · kareoptions.com</span>
+        <p>Online medical second opinions for cancer and cardiac patients worldwide. A care coordinator gathers your records, a specialist reviews them, and a written report is delivered within 72 hours, with follow-up support for two weeks.</p>
+        <ul>
+          <li>Medical Second Opinion Service and Multi-Specialty Board Review</li>
+          <li>Continuity of Care coordination</li>
+          <li>Medical tourism connecting patients with top hospitals in India</li>
+        </ul>
+        <a class="more" href="https://www.kareoptions.com" target="_blank" rel="noopener">kareoptions.com</a>
+      </article>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main id="top">
-    <div class="hero">
-      <div class="wrap">
-        <div class="badge">Healthcare technology</div>
-        <h1>Technology that helps people <em>live healthier</em></h1>
-        <p class="lead">ExeedFit builds simple, affordable digital health products that connect patients with the care they need and give doctors better tools to deliver it.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="#about">Learn more</a>
+<section id="structure" class="structure">
+  <div class="wrap">
+    <span class="eyebrow">Group structure</span>
+    <h2>How the pieces <span class="grad">connect</span></h2>
+    <p class="lede">ExeedFit Inc. is the US parent. Vita Excel Private Limited runs the Indian operation and ships DocIndia. KareOptions serves patients globally from Sunnyvale with a physician board largely based in India.</p>
+    <div class="diagram reveal">
+      <svg viewBox="0 0 960 360" role="img" aria-label="Organisation diagram: ExeedFit Inc. owns VitaExcel and KareOptions; VitaExcel operates DocIndia">
+        <defs>
+          <linearGradient id="og" x1="0" x2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#34D399"/></linearGradient>
+          <filter id="gl"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <!-- connectors -->
+        <path class="flow" d="M480 86 V150 H240 V200" fill="none" stroke="#22D3EE" stroke-width="2"/>
+        <path class="flow" d="M480 86 V150 H720 V200" fill="none" stroke="#A78BFA" stroke-width="2"/>
+        <path class="flow" d="M240 256 V300" fill="none" stroke="#38BDF8" stroke-width="2"/>
+        <!-- parent -->
+        <rect x="340" y="30" width="280" height="56" rx="10" fill="#0B1326" stroke="url(#og)" stroke-width="2" filter="url(#gl)"/>
+        <text x="480" y="54" text-anchor="middle" font-family="Rajdhani, sans-serif" font-weight="700" font-size="22" fill="#E6F1FF">EXEEDFIT INC.</text>
+        <text x="480" y="74" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="2" fill="#8FA6C2">PARENT · SUNNYVALE, CALIFORNIA · EST. 2018</text>
+        <!-- vita excel -->
+        <rect x="100" y="200" width="280" height="56" rx="10" fill="#0B1326" stroke="#34D399" stroke-width="2"/>
+        <text x="240" y="224" text-anchor="middle" font-family="Rajdhani, sans-serif" font-weight="700" font-size="20" fill="#E6F1FF">VITA EXCEL PRIVATE LIMITED</text>
+        <text x="240" y="244" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="2" fill="#8FA6C2">INDIA OPERATIONS · NEW DELHI / GURUGRAM</text>
+        <!-- kareoptions -->
+        <rect x="580" y="200" width="280" height="56" rx="10" fill="#0B1326" stroke="#A78BFA" stroke-width="2"/>
+        <text x="720" y="224" text-anchor="middle" font-family="Rajdhani, sans-serif" font-weight="700" font-size="20" fill="#E6F1FF">KAREOPTIONS</text>
+        <text x="720" y="244" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="2" fill="#8FA6C2">SECOND OPINION · GLOBAL · US / INDIA</text>
+        <!-- docindia -->
+        <rect x="100" y="300" width="280" height="50" rx="10" fill="#0B1326" stroke="#38BDF8" stroke-width="2"/>
+        <text x="240" y="322" text-anchor="middle" font-family="Rajdhani, sans-serif" font-weight="700" font-size="20" fill="#E6F1FF">DOCINDIA</text>
+        <text x="240" y="340" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="11" letter-spacing="2" fill="#8FA6C2">FLAGSHIP PRODUCT · DOCINDIA.ORG</text>
+        <!-- nodes -->
+        <circle cx="480" cy="86" r="5" fill="#22D3EE"/><circle cx="240" cy="200" r="5" fill="#34D399"/><circle cx="720" cy="200" r="5" fill="#A78BFA"/><circle cx="240" cy="300" r="5" fill="#38BDF8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="technology" class="tech">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Technology</span>
+      <h2>Cloud infrastructure <span class="grad">today.</span> AI <span class="grad">next.</span></h2>
+      <p class="lede">The group's stated goal is to connect the right patient with the right doctor at the right time. The stack is built to make that routine.</p>
+      <div class="feat reveal">
+        <div>
+          <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" stroke="#34D399" stroke-width="2"/><path d="M13 22l6 6 12-12" fill="none" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><strong>Credential verification engine</strong><span>Every physician on DocIndia passes a rigorous credential audit before going live. Trust is encoded in the data model, not the marketing.</span></div>
+        </div>
+        <div>
+          <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="5" y="9" width="26" height="26" rx="4" fill="none" stroke="#22D3EE" stroke-width="2"/><path d="M31 18l9-5v18l-9-5z" fill="#22D3EE"/><circle cx="18" cy="22" r="5" fill="none" stroke="#22D3EE" stroke-width="2"/></svg>
+          <div><strong>Secure telemedicine rooms</strong><span>Encrypted video, audio and chat consultations for patients at home, with appointment management and digital records for providers.</span></div>
+        </div>
+        <div>
+          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M8 34V12h12l4 4h12v18z" fill="none" stroke="#A78BFA" stroke-width="2"/><path d="M15 26h14M15 21h8" stroke="#A78BFA" stroke-width="2" stroke-linecap="round"/><circle cx="33" cy="33" r="7" fill="#050B18" stroke="#F472B6" stroke-width="2"/><path d="M33 29v4l3 2" fill="none" stroke="#F472B6" stroke-width="2" stroke-linecap="round"/></svg>
+          <div><strong>72-hour second-opinion workflow</strong><span>Record intake, specialist matching, board review and written reporting run as one tracked case pipeline at KareOptions.</span></div>
+        </div>
+        <div>
+          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 6l14 8v16l-14 8-14-8V14z" fill="none" stroke="#38BDF8" stroke-width="2"/><circle cx="22" cy="22" r="4" fill="#38BDF8"/><path d="M22 10v8M22 26v8M10 16l8 4M26 24l8 4M34 16l-8 4M18 24l-8 4" stroke="#38BDF8" stroke-width="1.5" opacity=".7"/></svg>
+          <div><strong>Cloud-native, API-first platform</strong><span>Web, Android patient app and provider app share one cloud backend, with integrations such as booking through Google.</span></div>
         </div>
       </div>
     </div>
+    <canvas id="helix" aria-label="Animated DNA helix" role="img"></canvas>
+  </div>
+</section>
 
-    <section id="about">
-      <div class="wrap">
-        <p class="eyebrow">About us</p>
-        <h2>Good healthcare should be within everyone's reach</h2>
-        <p class="section-intro">We are a technology company focused on healthcare. We believe care decisions should be driven by medical facts, and that well-designed software can make healthcare easier to access and more affordable for everyone.</p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <h3>Trust</h3>
-            <p>Verified information and credentials come first, so people can make care decisions with confidence.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg>
-            </div>
-            <h3>Simplicity</h3>
-            <p>Products that feel effortless for patients and fit naturally into the everyday work of doctors and clinics.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-            </div>
-            <h3>Affordability</h3>
-            <p>Technology should lower the cost of care, not add to it. We design with access and affordability in mind.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="focus">
-      <div class="wrap">
-        <p class="eyebrow">What we build</p>
-        <h2>Digital health, end to end</h2>
-        <p class="section-intro">From the first search for a doctor to follow-up care, we build products that make every step clearer and simpler.</p>
-
-        <div class="grid">
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-            </div>
-            <h3>Care discovery</h3>
-            <p>Helping patients find the right, verified doctor based on facts, not advertising.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m22 8-6 4 6 4V8z"/></svg>
-            </div>
-            <h3>Virtual &amp; in-clinic care</h3>
-            <p>Booking and consultation tools that work whether the visit happens by video or in person.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-            </div>
-            <h3>Apps for patients &amp; doctors</h3>
-            <p>Mobile and web experiences for records, appointments and communication between patients and care teams.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="founder">
-      <div class="wrap">
-        <p class="eyebrow">Leadership</p>
-        <h2>Meet the founder</h2>
-        <div class="founder">
-          <img class="avatar" src="assets/founder-anuj-singhal.jpg" alt="Anuj Singhal, Founder and CEO of ExeedFit" width="140" height="140" loading="lazy" />
-          <div>
-            <h3>Anuj Singhal</h3>
-            <p class="role">Founder &amp; CEO</p>
-            <p>Anuj is a healthcare technology entrepreneur. He founded DocIndia, a platform that helps patients in India discover verified doctors and book video or in-clinic consultations, and leads product and strategy across its website and its apps for patients and doctors. At ExeedFit he is focused on building technology that makes good healthcare simpler and more affordable.</p>
-            <div class="links">
-              <a href="https://www.linkedin.com/in/aksinghal/" target="_blank" rel="noopener">LinkedIn</a>
-              <a href="https://www.docindia.org/" target="_blank" rel="noopener">DocIndia</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="wrap">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's talk</h2>
-        <p class="section-intro">Partnerships, healthcare providers, investors or careers. We'd love to hear from you.</p>
-        <a class="btn btn-primary" href="mailto:hello@exeedfit.com">hello@exeedfit.com</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <span>&copy; 2026 ExeedFit. All rights reserved.</span>
-      <span>Healthcare technology</span>
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">How it works</span>
+    <h2>A patient journey, <span class="grad">end to end</span></h2>
+    <p class="lede">The order matters. Each step feeds the next, and each is handled by a product the group operates.</p>
+    <div class="pipe reveal">
+      <div class="step"><div class="n">01</div><h3>Discover</h3><p>Search verified doctors and clinics on DocIndia by specialty, city, fee and reviews.</p></div>
+      <div class="step"><div class="n">02</div><h3>Book</h3><p>Instant in-clinic or video appointment with a booking summary before payment.</p></div>
+      <div class="step"><div class="n">03</div><h3>Consult</h3><p>Secure tele-health room or clinic visit. Records stay with the patient digitally.</p></div>
+      <div class="step"><div class="n">04</div><h3>Second opinion</h3><p>For cancer or cardiac diagnoses, KareOptions coordinates a specialist review in 72 hours.</p></div>
+      <div class="step"><div class="n">05</div><h3>Treat</h3><p>Continuity-of-care follow-up, and medical tourism to top Indian hospitals when needed.</p></div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section id="founder" class="founder">
+  <div class="wrap">
+    <div class="portrait reveal" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="90" fill="none" stroke="#22D3EE" stroke-width="1" stroke-dasharray="4 6"/><circle cx="100" cy="78" r="34" fill="#0B1326" stroke="#34D399" stroke-width="2"/><path d="M40 170c6-34 30-52 60-52s54 18 60 52" fill="#0B1326" stroke="#34D399" stroke-width="2"/><path d="M60 40l10-10M130 30l10 10" stroke="#A78BFA" stroke-width="2"/></svg>
+      <span class="tag">FOUNDER // CEO</span>
+    </div>
+    <div>
+      <span class="eyebrow">Leadership</span>
+      <h2>Anuj Singhal</h2>
+      <p class="lede">Founder and CEO of ExeedFit. Over 25 years in technology, e-commerce and health technology. Before KareOptions he led the Sears Ecommerce Marketplace, and he founded DocIndia to help patients in India discover verified doctors and book video or in-clinic consultations.</p>
+      <blockquote>"At ExeedFit we are focused on building technology that makes good healthcare simpler and more affordable."</blockquote>
+      <div class="chips"><span>HEALTH TECH</span><span>E-COMMERCE MARKETPLACES</span><span>TELEMEDICINE</span><span>SUNNYVALE · GURUGRAM</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Contact</span>
+      <h2>Talk to the <span class="grad">group</span></h2>
+      <p class="lede">Partnerships, physician onboarding, press and investor enquiries.</p>
+      <div class="loc reveal">
+        <div><b>ExeedFit Inc. · KareOptions</b><span>Sunnyvale, CA 94087, United States</span><br><code>+1-669-699-1574</code> · <code>care@kareoptions.com</code><br><span>Phone 9 am to 9 pm PST</span></div>
+        <div><b>Vita Excel Private Limited · DocIndia</b><span>Head office: Gurugram, Haryana, India</span><br><span>Registered office: Kalkaji, New Delhi, India</span></div>
+      </div>
+    </div>
+    <form id="contact-form" novalidate>
+      <label for="f-name">Name<input id="f-name" name="name" type="text" autocomplete="name" required></label>
+      <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+      <label for="f-topic">Topic<input id="f-topic" name="topic" type="text" placeholder="Partnership, physician board, press…"></label>
+      <label for="f-msg">Message<textarea id="f-msg" name="message" rows="5" required></textarea></label>
+      <button class="btn btn-primary" type="submit">Send message</button>
+      <p class="note" id="form-note">Static site: wire this form to Formspree, Netlify Forms or your CRM before launch.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brands" aria-label="Group brands">
+      <svg viewBox="80 20 220 50"><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Vita<tspan fill="#34D399">Excel</tspan></text></svg>
+      <svg viewBox="80 20 220 50"><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Doc<tspan fill="#38BDF8">India</tspan></text></svg>
+      <svg viewBox="80 20 240 50"><text x="80" y="47" font-family="Rajdhani, sans-serif" font-size="40" font-weight="700" fill="#E6F1FF">Kare<tspan fill="#A78BFA">Options</tspan></text></svg>
+    </div>
+    <div>© <span id="year">2026</span> ExeedFit Inc. All rights reserved. · <a href="https://www.kareoptions.com/in/privacy-policy" target="_blank" rel="noopener">Privacy</a></div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
 </body>
 </html>
